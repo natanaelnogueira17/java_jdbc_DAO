@@ -53,8 +53,6 @@ public class SellerDaoImpl implements SellerDAO {
 		}finally {
 			DB.closeStatement(st);
 		}
-		
-
 	}
 
 	@Override
