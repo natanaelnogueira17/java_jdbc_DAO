@@ -1,4 +1,5 @@
 package db;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
@@ -9,11 +10,11 @@ import java.sql.Statement;
 import java.util.Properties;
 
 public class DB {
-	
+
 	private static Connection conn = null;
 
 	public static Properties loadProperties() {
-		try (FileInputStream fs = new FileInputStream("db.properties")){
+		try (FileInputStream fs = new FileInputStream("db.properties")) {
 			Properties props = new Properties();
 			props.load(fs);
 			return props;
@@ -22,23 +23,23 @@ public class DB {
 		}
 
 	}
-	
+
 	public static Connection getConnection() {
-		if(conn == null) {
+		if (conn == null) {
 			try {
-			Properties props = loadProperties();
-			String url = props.getProperty("dburl");
-			conn = DriverManager.getConnection(url, props);
-			System.out.println("Conectou");
+				Properties props = loadProperties();
+				String url = props.getProperty("dburl");
+				conn = DriverManager.getConnection(url, props);
+				System.out.println("Conectou");
 			} catch (SQLException e) {
 				throw new DbException(e.getMessage());
 			}
 		}
 		return conn;
 	}
-	
+
 	public static void closeConnection() {
-		if(conn != null) {
+		if (conn != null) {
 			try {
 				conn.close();
 				System.out.println("Fechou conexao");
@@ -47,9 +48,9 @@ public class DB {
 			}
 		}
 	}
-	
+
 	public static void closeStatement(Statement st) {
-		if(st!= null) {
+		if (st != null) {
 			try {
 				st.close();
 			} catch (SQLException e) {
@@ -57,9 +58,9 @@ public class DB {
 			}
 		}
 	}
-	
+
 	public static void closeResultset(ResultSet rs) {
-		if(rs!= null) {
+		if (rs != null) {
 			try {
 				rs.close();
 			} catch (SQLException e) {
