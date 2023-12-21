@@ -1,6 +1,5 @@
 package aplicaton;
 
-import java.util.Iterator;
 import java.util.List;
 
 import model.dao.DAOFectory;
@@ -18,6 +17,13 @@ public class Program {
 		Department department = new Department(2, null);
 		List<Seller>list = sellerDAO.findByDepartment(department);
 		for (Seller s : list) {
+			System.out.println(s);			
+		}
+		
+		System.out.println("////////////////////////////////////////////////////////");
+		
+		List<Seller>listAll = sellerDAO.findAll();
+		for (Seller s : listAll) {
 			System.out.println(s);			
 		}
 	}
