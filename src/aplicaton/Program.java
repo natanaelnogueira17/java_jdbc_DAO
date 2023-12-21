@@ -1,5 +1,6 @@
 package aplicaton;
 
+import java.util.Date;
 import java.util.List;
 
 import model.dao.DAOFectory;
@@ -12,7 +13,7 @@ public class Program {
 	public static void main(String[] args) {
 		
 		SellerDAO sellerDAO =  DAOFectory.createSellerDao();
-		Seller  seller = sellerDAO.findById(3);
+		//Seller  seller = sellerDAO.findById(3);
 		//System.out.println(seller);	
 		Department department = new Department(2, null);
 		List<Seller>list = sellerDAO.findByDepartment(department);
@@ -26,6 +27,15 @@ public class Program {
 		for (Seller s : listAll) {
 			System.out.println(s);			
 		}
+		
+		
+		System.out.println("******************************************************");
+		
+		
+		Seller seller = new Seller(null, "greg", "greg@gmail.com", new Date(), 4400.0, department);
+		//sellerDAO.insert(seller);
+		System.out.println(seller.getId());
+		 
 	}
 
 }
