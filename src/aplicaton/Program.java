@@ -10,12 +10,7 @@ public class Program {
 		
 		SellerDAO sellerDAO =  DAOFectory.createSellerDao();
 		Seller  seller = sellerDAO.findById(3);
-		
-		System.out.println(seller);
-		
-		
-		
-		
+		System.out.println(seller);		
 	}
 
 }
